@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KHURSANBEKOV ASADBEK — AI Web Designer</title>
+<meta name="description" content="Khursanbekov Asadbek — AI Web Designer. Turning ideas into digital experiences.">
+<meta property="og:title" content="KHURSANBEKOV ASADBEK — AI Web Designer">
+<meta property="og:description" content="Turning ideas into digital experiences.">
+<meta property="og:type" content="website">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Khursanbekov Asadbek","jobTitle":"AI Web Designer","sameAs":["https://t.me/khursandbekov_a","https://instagram.com/khursandbekov_a7"]}</script>
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<style>
+:root{--bg:#F7F7F5;--fg:#111111;--mute:#777777;--line:rgba(17,17,17,.12);--ink:#101010;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d0d0d;--fg:#f2f2f0;--mute:#9a9a9a;--line:rgba(255,255,255,.14)}}
+:root[data-theme="dark"]{--bg:#0d0d0d;--fg:#f2f2f0;--mute:#9a9a9a;--line:rgba(255,255,255,.14)}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.disp{font-family:'Space Grotesk','Inter',system-ui,sans-serif;letter-spacing:-.035em;line-height:.95;overflow-wrap:anywhere;hyphens:auto}
+section{scroll-margin-top:70px}
+.mute{color:var(--mute)}
+#veil{position:fixed;inset:0;background:#101010;z-index:100;animation:veil 1.1s cubic-bezier(.77,0,.18,1) .25s forwards;pointer-events:none;display:grid;place-items:center;color:#ddd;letter-spacing:.4em;font-size:11px}
+@keyframes veil{to{transform:translateY(-101%)}}
+.fade{transition:opacity .18s ease,filter .18s ease}.fade.out{opacity:0;filter:blur(6px)}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}.rv.in{opacity:1;transform:none}
+.ent{opacity:0;transform:translateY(40px);animation:ent 1s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes ent{to{opacity:1;transform:none}}
+/* 3D scene */
+.scene{position:relative;width:min(88vw,460px);aspect-ratio:1;perspective:900px}
+.layer{position:absolute;inset:0;will-change:transform}
+.sph{position:absolute;border-radius:50%;background:radial-gradient(circle at 32% 26%,#fff 0,#f1f1f1 9%,#b9b9b9 30%,#6b6b6b 58%,#1c1c1c 88%);box-shadow:0 40px 60px -20px rgba(0,0,0,.45),inset -14px -18px 40px rgba(0,0,0,.45),inset 8px 10px 30px rgba(255,255,255,.35);animation:flt 7s ease-in-out infinite}
+.sph::after{content:"";position:absolute;left:18%;top:12%;width:34%;height:20%;border-radius:50%;background:rgba(255,255,255,.55);filter:blur(8px);transform:rotate(-24deg)}
+@keyframes flt{50%{translate:0 -16px}}
+.ring{position:absolute;inset:6%;border-radius:50%;border:1px solid rgba(17,17,17,.35);transform-style:preserve-3d;animation:spin 18s linear infinite}
+.ring.b{inset:-2%;border-color:rgba(120,120,120,.4);animation-duration:26s;animation-direction:reverse}
+@keyframes spin{from{transform:rotateX(72deg) rotateZ(0)}to{transform:rotateX(72deg) rotateZ(360deg)}}
+.cube{position:absolute;width:84px;height:84px;transform-style:preserve-3d;animation:cube 16s linear infinite}
+.cube i{position:absolute;inset:0;border:1px solid rgba(17,17,17,.55);background:linear-gradient(135deg,rgba(255,255,255,.7),rgba(170,170,170,.25));backdrop-filter:blur(2px)}
+.cube i:nth-child(1){transform:translateZ(42px)}.cube i:nth-child(2){transform:rotateY(90deg) translateZ(42px)}.cube i:nth-child(3){transform:rotateY(180deg) translateZ(42px)}.cube i:nth-child(4){transform:rotateY(-90deg) translateZ(42px)}.cube i:nth-child(5){transform:rotateX(90deg) translateZ(42px)}.cube i:nth-child(6){transform:rotateX(-90deg) translateZ(42px)}
+@keyframes cube{to{transform:rotateX(360deg) rotateY(360deg)}}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;padding:1rem 1.6rem;border-radius:999px;font-size:12px;letter-spacing:.14em;font-weight:600;border:1px solid var(--fg);transition:background .3s,color .3s,transform .2s ease-out;will-change:transform;cursor:pointer;text-align:center}
+.btn.solid{background:var(--fg);color:var(--bg)}.btn.solid:hover{background:transparent;color:var(--fg)}
+.btn.ghost:hover{background:var(--fg);color:var(--bg)}
+.btn.lt{border-color:#f2f2f0;color:#f2f2f0;background:transparent}.btn.lt:hover{background:#f2f2f0;color:#101010}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid #888;outline-offset:3px}
+/* skills */
+.sk{position:relative;border-top:1px solid var(--line);padding:1.4rem 0;display:flex;align-items:center;gap:1rem;justify-content:space-between;overflow:hidden;transition:padding .4s}
+.sk::before{content:"";position:absolute;left:0;top:-1px;height:1px;width:100%;background:linear-gradient(90deg,transparent,var(--fg),transparent);transform:translateX(-100%);transition:transform .9s}
+.sk:hover::before,.in .sk::before{transform:translateX(100%)}
+.sk:hover{padding-left:1rem}
+.dot{width:8px;height:8px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff,#777);box-shadow:0 0 0 0 rgba(120,120,120,.5);animation:pulse 2.4s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(120,120,120,0)}}
+/* projects */
+.pv{position:relative;overflow:hidden;border-radius:20px;background:radial-gradient(120% 90% at 70% 10%,#3a3a3a,#141414 55%,#0a0a0a);aspect-ratio:16/9;display:grid;place-items:center;isolation:isolate}
+.pv .big{font-family:'Space Grotesk',sans-serif;font-size:clamp(4rem,17vw,12rem);letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.55);transition:all .7s cubic-bezier(.2,.7,.2,1)}
+.pv:hover .big{color:#eee;-webkit-text-stroke-color:transparent;transform:scale(1.05)}
+.pv .sph{width:18%;aspect-ratio:1;right:8%;top:14%;opacity:.9}
+.soon{border:1px dashed rgba(255,255,255,.22);border-radius:20px;aspect-ratio:4/3;display:grid;place-items:center;transition:border-color .4s,transform .4s}
+.soon:hover{border-color:rgba(255,255,255,.6);transform:translateY(-6px)}
+/* process */
+.st{border-top:1px solid var(--line);padding:1.6rem 0;transition:transform .4s}.st:hover{transform:translateX(8px)}
+/* form */
+.fld{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.28);color:#f2f2f0;padding:.9rem 0;font-size:16px;outline-offset:4px;border-radius:0}
+.fld:focus{border-color:#fff}.fld[aria-invalid=true]{border-color:#d98b8b}
+#cur{position:fixed;left:0;top:0;width:34px;height:34px;margin:-17px 0 0 -17px;border:1px solid #999;border-radius:50%;pointer-events:none;z-index:90;mix-blend-mode:difference;transition:width .25s,height .25s,margin .25s,background .25s;display:none}
+#cur.big{width:70px;height:70px;margin:-35px 0 0 -35px;background:#fff}
+@media (hover:hover) and (pointer:fine){#cur{display:block}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv,.ent{opacity:1;transform:none}#veil{display:none}}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+const {useState,useEffect,useRef}=React,h=React.createElement;
+const EMAIL="hello@yourdomain.com",TG="https://t.me/khursandbekov_a",IG="https://instagram.com/khursandbekov_a7";
+const T={
+uz:{t:"KHURSANBEKOV ASADBEK — AI veb-dizayner",d:"Khursanbekov Asadbek — AI veb-dizayner. G‘oyalarni raqamli tajribaga aylantiraman.",
+skip:"Asosiy kontentga o‘tish",menu:"Menyuni ochish",close:"Menyuni yopish",lsw:"Tilni tanlash",mnav:"Asosiy navigatsiya",
+nav:["Men haqimda","Ko‘nikmalar","Loyihalar","Jarayon","Aloqa"],role:"AI VEB-DIZAYNER",
+eye:"MUSTAQIL RAQAMLI IJODKOR",h1:["KELAJAKNI","LOYIHALAYMAN."],tag:"G‘oyalarni raqamli tajribaga aylantiraman.",
+desc:"Ijodiy fikrlash, frontend texnologiyalari va sun’iy intellektni uyg‘unlashtirib, zamonaviy raqamli tajribalar yarataman.",
+b1:"LOYIHALARIMNI KO‘RISH",b2:"KELING, GAPLASHAMIZ",scene:"Suzuvchi metall soha va geometrik shakl (bezak)",
+aL:"MEN HAQIMDA",aT:"IJODKORLIK TEXNOLOGIYA BILAN UCHRASHGANDA.",
+a1:"Men Khursanbekov Asadbek — veb-dizayn, frontend dasturlash va sun’iy intellekt vositalariga qiziqadigan, endi yo‘lini boshlayotgan raqamli ijodkorman.",
+a2:"G‘oyalarni toza, zamonaviy va qulay veb-saytlarga aylantirishni yaxshi ko‘raman. Har bir loyihada ko‘proq o‘rganishga va aniqroq ishlashga intilaman.",
+sL:"KO‘NIKMALAR",sT:"ISHLATADIGAN VOSITALARIM.",sk:["HTML","CSS","JavaScript","Lovable","AI yordamida dasturlash","UI/UX dizayn"],
+pL:"LOYIHALAR",pT:"TANLANGAN ISHLAR.",feat:"TANLANGAN LOYIHA",cat:"Ijodiy sartaroshxona veb-sayti",
+pd:"Kinematografik tasvirlar va onlayn yozilish imkoniyatiga ega premium sartaroshxona raqamli tajribasi.",soon:"Tez orada",pn:["Loyiha 02","Loyiha 03"],
+rL:"JARAYON",rT:"QANDAY ISHLAYMAN.",steps:[["KASHF ETISH","G‘oyani tushunish."],["LOYIHALASH","Vizual tajribani yaratish."],["YARATISH","Zamonaviy vositalar va AI yordamida ishlab chiqish."],["MUKAMMALLASH","Har bir detalni sinash va yaxshilash."]],
+cT:["G‘OYANGIZ BORMI?","KELING, YARATAMIZ."],cn:"Ismingiz",ce:"Email",cm:"Xabar",cnp:"Ismingizni yozing",cep:"sizning@email.com",cmp:"Loyihangiz haqida qisqacha yozing…",send:"XABAR YUBORISH",
+e1:"Iltimos, ismingizni kiriting.",e2:"To‘g‘ri email manzil kiriting.",e3:"Xabar kamida 10 ta belgidan iborat bo‘lsin.",ok:"Rahmat! Xabaringiz tayyor — pochta ilovangiz ochiladi.",er:"Xatolik yuz berdi. Iltimos, Telegram orqali yozing.",
+dir:"TO‘G‘RIDAN-TO‘G‘RI",tg:"Telegram",ig:"Instagram",ext:"(yangi oynada ochiladi)",rights:"Barcha huquqlar himoyalangan.",top:"Tepaga qaytish"},
+ru:{t:"KHURSANBEKOV ASADBEK — AI веб-дизайнер",d:"Khursanbekov Asadbek — AI веб-дизайнер. Превращаю идеи в цифровой опыт.",
+skip:"Перейти к основному содержимому",menu:"Открыть меню",close:"Закрыть меню",lsw:"Выбор языка",mnav:"Основная навигация",
+nav:["Обо мне","Навыки","Проекты","Процесс","Контакты"],role:"AI ВЕБ-ДИЗАЙНЕР",
+eye:"НЕЗАВИСИМЫЙ ЦИФРОВОЙ ТВОРЕЦ",h1:["ДИЗАЙН","БУДУЩЕГО."],tag:"Превращаю идеи в цифровой опыт.",
+desc:"Я создаю современный цифровой опыт, объединяя творческое мышление, фронтенд-технологии и искусственный интеллект.",
+b1:"МОИ РАБОТЫ",b2:"ДАВАЙТЕ ОБСУДИМ",scene:"Парящая металлическая сфера и геометрическая фигура (декор)",
+aL:"ОБО МНЕ",aT:"ТВОРЧЕСТВО ВСТРЕЧАЕТ ТЕХНОЛОГИИ.",
+a1:"Я — Khursanbekov Asadbek, начинающий цифровой творец, увлечённый веб-дизайном, фронтенд-разработкой и инструментами на базе ИИ.",
+a2:"Мне нравится превращать идеи в чистые, современные и удобные сайты. С каждым проектом я стремлюсь учиться больше и работать точнее.",
+sL:"НАВЫКИ",sT:"МОИ ИНСТРУМЕНТЫ.",sk:["HTML","CSS","JavaScript","Lovable","Разработка с ИИ","UI/UX-дизайн"],
+pL:"ПРОЕКТЫ",pT:"ИЗБРАННЫЕ РАБОТЫ.",feat:"ГЛАВНЫЙ ПРОЕКТ",cat:"Сайт креативного барбершопа",
+pd:"Премиальный цифровой опыт для барбершопа: кинематографичные визуалы и онлайн-запись.",soon:"Скоро",pn:["Проект 02","Проект 03"],
+rL:"ПРОЦЕСС",rT:"КАК Я РАБОТАЮ.",steps:[["ИЗУЧЕНИЕ","Понимание идеи."],["ДИЗАЙН","Создание визуального опыта."],["РАЗРАБОТКА","Разработка с помощью современных инструментов и ИИ."],["ДОРАБОТКА","Тестирование и улучшение каждой детали."]],
+cT:["ЕСТЬ ИДЕЯ?","ДАВАЙТЕ ВОПЛОТИМ ЕЁ."],cn:"Ваше имя",ce:"Email",cm:"Сообщение",cnp:"Как вас зовут",cep:"ваш@email.com",cmp:"Коротко расскажите о вашем проекте…",send:"ОТПРАВИТЬ СООБЩЕНИЕ",
+e1:"Пожалуйста, введите ваше имя.",e2:"Введите корректный адрес email.",e3:"Сообщение должно содержать не менее 10 символов.",ok:"Спасибо! Сообщение готово — откроется ваше почтовое приложение.",er:"Произошла ошибка. Пожалуйста, напишите в Telegram.",
+dir:"НАПРЯМУЮ",tg:"Telegram",ig:"Instagram",ext:"(откроется в новой вкладке)",rights:"Все права защищены.",top:"Наверх"},
+en:{t:"KHURSANBEKOV ASADBEK — AI Web Designer",d:"Khursanbekov Asadbek — AI Web Designer. Turning ideas into digital experiences.",
+skip:"Skip to main content",menu:"Open menu",close:"Close menu",lsw:"Choose language",mnav:"Main navigation",
+nav:["About","Skills","Work","Process","Contact"],role:"AI WEB DESIGNER",
+eye:"INDEPENDENT DIGITAL CREATOR",h1:["DESIGNING","THE FUTURE."],tag:"Turning ideas into digital experiences.",
+desc:"I create modern digital experiences by combining creative thinking, frontend technologies and artificial intelligence.",
+b1:"EXPLORE MY WORK",b2:"LET’S TALK",scene:"Floating metallic sphere and geometric sculpture (decorative)",
+aL:"ABOUT ME",aT:"CREATIVITY MEETS TECHNOLOGY.",
+a1:"I’m Khursanbekov Asadbek, an aspiring digital creator interested in web design, frontend development and AI-powered tools.",
+a2:"I love turning ideas into clean, modern and easy-to-use websites. With every project I aim to learn more and work with greater precision.",
+sL:"SKILLS",sT:"THE TOOLS I WORK WITH.",sk:["HTML","CSS","JavaScript","Lovable","AI-assisted development","UI/UX design"],
+pL:"WORK",pT:"SELECTED PROJECTS.",feat:"FEATURED PROJECT",cat:"Creative Barbershop Website",
+pd:"A premium barbershop digital experience with cinematic visuals and appointment booking.",soon:"Coming soon",pn:["Project 02","Project 03"],
+rL:"PROCESS",rT:"HOW I WORK.",steps:[["DISCOVER","Understanding the idea."],["DESIGN","Creating the visual experience."],["BUILD","Developing with modern tools and AI."],["REFINE","Testing and improving every detail."]],
+cT:["HAVE AN IDEA?","LET’S BUILD IT."],cn:"Your name",ce:"Email",cm:"Message",cnp:"Your name",cep:"you@email.com",cmp:"Tell me briefly about your project…",send:"SEND MESSAGE",
+e1:"Please enter your name.",e2:"Please enter a valid email address.",e3:"Your message should be at least 10 characters.",ok:"Thank you! Your message is ready — your mail app will open.",er:"Something went wrong. Please reach out on Telegram.",
+dir:"DIRECT",tg:"Telegram",ig:"Instagram",ext:"(opens in a new tab)",rights:"All rights reserved.",top:"Back to top"}};
+const LANGS=["uz","ru","en"],SEC=["about","skills","work","process","contact"];
+const rm=window.matchMedia&&matchMedia("(prefers-reduced-motion:reduce)").matches;
+
+function Reveal({children,cls="",delay=0}){const r=useRef();useEffect(()=>{const e=r.current,o=new IntersectionObserver(([x])=>{if(x.isIntersecting){e.classList.add("in");o.disconnect()}},{threshold:.15});o.observe(e);return()=>o.disconnect()},[]);return h("div",{ref:r,className:"rv "+cls,style:{transitionDelay:delay+"ms"}},children)}
+
+function Mag({as="a",className="",children,...p}){const r=useRef();
+const mv=e=>{if(rm)return;const b=r.current.getBoundingClientRect();r.current.style.transform=`translate(${(e.clientX-b.left-b.width/2)*.25}px,${(e.clientY-b.top-b.height/2)*.35}px)`};
+const lv=()=>{r.current.style.transform=""};
+return h(as,{ref:r,className:"btn "+className,onMouseMove:mv,onMouseLeave:lv,...p},children)}
+
+function Scene({label}){const r=useRef();useEffect(()=>{if(rm)return;let tx=0,ty=0,x=0,y=0,id;
+const mm=e=>{tx=e.clientX/innerWidth-.5;ty=e.clientY/innerHeight-.5};addEventListener("pointermove",mm,{passive:true});
+const loop=()=>{x+=(tx-x)*.06;y+=(ty-y)*.06;const el=r.current;if(el){el.style.transform=`rotateY(${x*16}deg) rotateX(${-y*16}deg)`;el.querySelectorAll("[data-d]").forEach(n=>{const d=+n.dataset.d;n.style.transform=`translate3d(${x*d}px,${y*d}px,0)`})}id=requestAnimationFrame(loop)};
+loop();return()=>{removeEventListener("pointermove",mm);cancelAnimationFrame(id)}},[]);
+return h("div",{className:"scene ent",style:{animationDelay:"1.3s"},role:"img","aria-label":label},
+h("div",{ref:r,style:{position:"absolute",inset:0,transformStyle:"preserve-3d"}},
+h("div",{className:"ring b"}),h("div",{className:"ring"}),
+h("div",{className:"layer","data-d":30},h("div",{className:"sph",style:{left:"22%",top:"22%",width:"56%",height:"56%"}})),
+h("div",{className:"layer","data-d":-50},h("div",{className:"sph",style:{left:"4%",top:"58%",width:"17%",height:"17%",animationDelay:"-2s"}}),h("div",{className:"sph",style:{right:"6%",top:"10%",width:"11%",height:"11%",animationDelay:"-4s"}})),
+h("div",{className:"layer","data-d":60,style:{display:"grid",placeItems:"end start",padding:"0 0 12% 62%"}},h("div",{className:"cube"},[0,1,2,3,4,5].map(i=>h("i",{key:i}))))))}
+
+function Nav({lang,setLang,s,open,setOpen}){
+const link=(i,c)=>h("a",{key:i,href:"#"+SEC[i],onClick:()=>setOpen(false),className:c},s.nav[i]);
+return h("header",{className:"fixed top-0 inset-x-0 z-50",style:{paddingTop:"env(safe-area-inset-top,0px)",background:"color-mix(in srgb,var(--bg) 78%,transparent)",backdropFilter:"blur(14px)",WebkitBackdropFilter:"blur(14px)",borderBottom:"1px solid var(--line)"}},
+h("div",{className:"mx-auto max-w-7xl px-5 md:px-10 h-16 flex items-center justify-between gap-3"},
+h("a",{href:"#top",className:"disp text-sm font-semibold tracking-tight whitespace-nowrap","aria-label":"KHURSANBEKOV ASADBEK"},"K.ASADBEK"),
+h("nav",{"aria-label":s.mnav,className:"hidden lg:flex gap-8 text-[13px] mute"},SEC.map((_,i)=>link(i,"hover:text-[var(--fg)] transition-colors"))),
+h("div",{className:"flex items-center gap-3"},
+h("div",{role:"group","aria-label":s.lsw,className:"flex items-center text-[12px] tracking-widest font-semibold"},
+LANGS.map((l,i)=>h(React.Fragment,{key:l},i>0&&h("span",{className:"mute","aria-hidden":"true"},"|"),
+h("button",{type:"button",lang:l,"aria-pressed":lang===l,onClick:()=>setLang(l),className:"px-2 py-2 min-w-[36px] transition-colors "+(lang===l?"":"mute hover:text-[var(--fg)]"),style:lang===l?{textDecoration:"underline",textUnderlineOffset:"6px"}:null},l.toUpperCase())))),
+h("button",{type:"button",className:"lg:hidden p-2","aria-label":open?s.close:s.menu,"aria-expanded":open,"aria-controls":"mm",onClick:()=>setOpen(!open)},
+h("svg",{width:22,height:22,viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:1.6,"aria-hidden":"true"},open?h("path",{d:"M5 5l14 14M19 5L5 19"}):h("path",{d:"M3 8h18M3 16h18"}))))),
+open&&h("nav",{id:"mm","aria-label":s.mnav,className:"lg:hidden px-5 pb-8 pt-4 flex flex-col gap-1",style:{background:"var(--bg)"}},SEC.map((_,i)=>link(i,"disp text-4xl py-3 border-b border-[var(--line)]"))))}
+
+function App(){
+const[lang,setL]=useState(()=>{try{const v=localStorage.getItem("lang");return LANGS.includes(v)?v:"uz"}catch(e){return"uz"}});
+const[out,setOut]=useState(false),[open,setOpen]=useState(false);
+const s=T[lang];
+const setLang=l=>{if(l===lang)return;setOut(true);setTimeout(()=>{setL(l);try{localStorage.setItem("lang",l)}catch(e){}setOut(false)},170)};
+useEffect(()=>{document.documentElement.lang=lang;document.title=s.t;const m=document.querySelector('meta[name=description]');m&&m.setAttribute("content",s.d);const o=document.querySelector('meta[property="og:title"]');o&&o.setAttribute("content",s.t)},[lang]);
+useEffect(()=>{const c=document.getElementById("cur");if(!c||rm)return;let x=0,y=0,cx=0,cy=0,id;
+const mm=e=>{x=e.clientX;y=e.clientY;c.classList.toggle("big",!!e.target.closest("a,button,.pv"))};addEventListener("pointermove",mm,{passive:true});
+const l=()=>{cx+=(x-cx)*.2;cy+=(y-cy)*.2;c.style.transform=`translate(${cx}px,${cy}px)`;id=requestAnimationFrame(l)};l();return()=>{removeEventListener("pointermove",mm);cancelAnimationFrame(id)}},[]);
+return h("div",{id:"top"},
+h("a",{href:"#main",className:"sr-only focus:not-sr-only fixed top-2 left-2 z-[200] bg-white text-black px-3 py-2 rounded"},s.skip),
+h(Nav,{lang,setLang,s,open,setOpen}),
+h("main",{id:"main",className:"fade "+(out?"out":"")},
+h(Hero,{s}),h(About,{s}),h(Skills,{s}),h(Work,{s}),h(Process,{s}),h(Contact,{s,lang})),
+h(Footer,{s}))}
+
+function Hero({s}){const d=i=>({animationDelay:(1.1+i*.12)+"s"});
+return h("section",{className:"relative min-h-[100svh] pt-28 pb-16 flex items-center",style:{background:"radial-gradient(60% 50% at 80% 40%,rgba(190,190,190,.35),transparent)"}},
+h("div",{className:"mx-auto max-w-7xl w-full px-5 md:px-10 grid lg:grid-cols-[1.15fr_.85fr] gap-10 items-center"},
+h("div",null,
+h("p",{className:"ent text-[11px] tracking-[.3em] mute mb-6",style:d(0)},s.eye),
+h("h1",{className:"disp ent font-semibold text-[clamp(2.6rem,9.5vw,7.5rem)]",style:d(1)},s.h1[0],h("br"),s.h1[1]),
+h("p",{className:"ent disp mt-8 text-lg md:text-2xl font-medium",style:d(2)},"KHURSANBEKOV ASADBEK"),
+h("p",{className:"ent mt-1 text-[11px] tracking-[.3em] mute",style:d(2)},s.role),
+h("p",{className:"ent mt-6 max-w-lg mute leading-relaxed text-base md:text-lg",style:d(3)},s.desc),
+h("div",{className:"ent mt-9 flex flex-wrap gap-3",style:d(4)},h(Mag,{href:"#work",className:"solid"},s.b1),h(Mag,{href:"#contact",className:"ghost"},s.b2))),
+h("div",{className:"flex justify-center"},h(Scene,{label:s.scene}))))}
+
+const Lbl=({n,t})=>h("p",{className:"text-[11px] tracking-[.3em] mute mb-5"},n+" — "+t);
+
+function About({s}){return h("section",{id:"about",className:"py-24 md:py-36"},
+h("div",{className:"mx-auto max-w-7xl px-5 md:px-10 grid md:grid-cols-12 gap-10"},
+h("div",{className:"md:col-span-5"},h(Reveal,null,h(Lbl,{n:"01",t:s.aL}),h("h2",{className:"disp font-semibold text-[clamp(2rem,5vw,4rem)]"},s.aT))),
+h("div",{className:"md:col-span-6 md:col-start-7 md:pt-12 space-y-6"},
+h(Reveal,{delay:100},h("p",{className:"text-xl md:text-2xl leading-snug"},s.a1)),
+h(Reveal,{delay:200},h("p",{className:"mute leading-relaxed text-base md:text-lg"},s.a2)))))}
+
+function Skills({s}){return h("section",{id:"skills",className:"pb-24 md:pb-36"},
+h("div",{className:"mx-auto max-w-7xl px-5 md:px-10 grid md:grid-cols-12 gap-10"},
+h("div",{className:"md:col-span-5"},h(Reveal,null,h(Lbl,{n:"02",t:s.sL}),h("h2",{className:"disp font-semibold text-[clamp(2rem,5vw,4rem)]"},s.sT))),
+h("div",{className:"md:col-span-6 md:col-start-7"},h(Reveal,null,h("ul",{className:"list-none p-0 m-0",style:{borderBottom:"1px solid var(--line)"}},
+s.sk.map((k,i)=>h("li",{key:i,className:"sk"},h("span",{className:"flex items-baseline gap-4"},h("span",{className:"text-[11px] mute tabular-nums"},"0"+(i+1)),h("span",{className:"disp text-2xl md:text-3xl font-medium"},k)),h("span",{className:"dot","aria-hidden":"true",style:{animationDelay:i*.3+"s"}}))))))))}
+
+function Work({s}){return h("section",{id:"work",className:"py-24 md:py-36",style:{background:"var(--ink)",color:"#f2f2f0"}},
+h("div",{className:"mx-auto max-w-7xl px-5 md:px-10"},
+h(Reveal,null,h("p",{className:"text-[11px] tracking-[.3em] mb-5",style:{color:"#999"}},"03 — "+s.pL),h("h2",{className:"disp font-semibold text-[clamp(2rem,5vw,4rem)] mb-14"},s.pT)),
+h(Reveal,null,h("article",null,h("div",{className:"pv",role:"img","aria-label":"NOIR — THE ART OF GROOMING"},h("div",{className:"sph","aria-hidden":"true"}),h("span",{className:"big"},"NOIR")),
+h("div",{className:"mt-8 grid md:grid-cols-12 gap-6"},
+h("div",{className:"md:col-span-6"},h("p",{className:"text-[11px] tracking-[.3em]",style:{color:"#999"}},"01 — "+s.feat),h("h3",{className:"disp mt-3 text-3xl md:text-5xl font-semibold"},"NOIR — THE ART OF GROOMING")),
+h("div",{className:"md:col-span-5 md:col-start-8"},h("p",{className:"text-sm tracking-widest mb-3",style:{color:"#bbb"}},s.cat.toUpperCase()),h("p",{className:"leading-relaxed",style:{color:"#aaa"}},s.pd))))),
+h("div",{className:"grid sm:grid-cols-2 gap-5 mt-16"},s.pn.map((n,i)=>h(Reveal,{key:i,delay:i*120},h("div",{className:"soon"},h("div",{className:"text-center"},h("p",{className:"text-[11px] tracking-[.3em]",style:{color:"#888"}},"0"+(i+2)+" — "+n.toUpperCase()),h("p",{className:"disp text-3xl md:text-4xl mt-3 font-medium"},s.soon))))))))}
+
+function Process({s}){return h("section",{id:"process",className:"py-24 md:py-36"},
+h("div",{className:"mx-auto max-w-7xl px-5 md:px-10 grid md:grid-cols-12 gap-10"},
+h("div",{className:"md:col-span-5"},h(Reveal,null,h(Lbl,{n:"04",t:s.rL}),h("h2",{className:"disp font-semibold text-[clamp(2rem,5vw,4rem)]"},s.rT))),
+h("ol",{className:"md:col-span-6 md:col-start-7 list-none p-0 m-0"},s.steps.map((p,i)=>h("li",{key:i},h(Reveal,{delay:i*90},h("div",{className:"st grid grid-cols-[3rem_1fr] gap-3"},h("span",{className:"text-[11px] mute pt-2 tabular-nums"},"0"+(i+1)),h("div",null,h("h3",{className:"disp text-2xl md:text-3xl font-medium"},p[0]),h("p",{className:"mute mt-2"},p[1])))))))))}
+
+function Contact({s,lang}){
+const[v,setV]=useState({n:"",e:"",m:""}),[er,setEr]=useState({}),[st,setSt]=useState("");
+const up=k=>e=>setV({...v,[k]:e.target.value});
+const sub=e=>{e.preventDefault();const x={};
+if(v.n.trim().length<2)x.n=s.e1;if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.e.trim()))x.e=s.e2;if(v.m.trim().length<10)x.m=s.e3;
+setEr(x);setSt("");if(Object.keys(x).length)return;
+try{const b=encodeURIComponent(v.m+"\n\n— "+v.n+" ("+v.e+")");location.href=`mailto:${EMAIL}?subject=${encodeURIComponent("Portfolio — "+v.n)}&body=${b}`;setSt("ok");setV({n:"",e:"",m:""})}catch(_){setSt("er")}};
+const F=(k,id,label,ph,Tag,extra)=>h("div",null,h("label",{htmlFor:id,className:"block text-[11px] tracking-[.25em] mb-1",style:{color:"#999"}},label.toUpperCase()),
+h(Tag,{id,className:"fld",placeholder:ph,value:v[k],onChange:up(k),"aria-invalid":!!er[k],"aria-describedby":er[k]?id+"-e":undefined,...extra}),
+er[k]&&h("p",{id:id+"-e",className:"text-sm mt-1",style:{color:"#e9a3a3"}},er[k]));
+const lk=(href,t)=>h("a",{href,target:"_blank",rel:"noopener noreferrer",className:"disp text-2xl md:text-3xl block py-1 hover:opacity-60 transition-opacity"},t," ↗",h("span",{className:"sr-only"}," "+s.ext));
+return h("section",{id:"contact",className:"py-24 md:py-36",style:{background:"var(--ink)",color:"#f2f2f0",borderTop:"1px solid #222"}},
+h("div",{className:"mx-auto max-w-7xl px-5 md:px-10 grid md:grid-cols-12 gap-14"},
+h("div",{className:"md:col-span-6"},h(Reveal,null,h("p",{className:"text-[11px] tracking-[.3em] mb-5",style:{color:"#999"}},"05 — "+s.nav[4].toUpperCase()),
+h("h2",{className:"disp font-semibold text-[clamp(2.2rem,6vw,5rem)]"},s.cT[0],h("br"),s.cT[1]),
+h("p",{className:"mt-10 text-[11px] tracking-[.3em]",style:{color:"#999"}},s.dir),
+h("p",{className:"disp text-2xl md:text-3xl mt-3",style:{color:"#bbb"}},EMAIL),
+h("div",{className:"mt-3"},lk(TG,s.tg),lk(IG,s.ig)))),
+h("div",{className:"md:col-span-5 md:col-start-8"},h(Reveal,{delay:120},h("form",{onSubmit:sub,noValidate:true,className:"space-y-8"},
+F("n","f-n",s.cn,s.cnp,"input",{type:"text",autoComplete:"name"}),
+F("e","f-e",s.ce,s.cep,"input",{type:"email",autoComplete:"email"}),
+F("m","f-m",s.cm,s.cmp,"textarea",{rows:4}),
+h(Mag,{as:"button",type:"submit",className:"lt"},s.send," →"),
+h("p",{role:"status","aria-live":"polite",className:"text-sm min-h-[1.25rem]",style:{color:st==="er"?"#e9a3a3":"#c9c9c9"}},st==="ok"?s.ok:st==="er"?s.er:"")))))) }
+
+function Footer({s}){return h("footer",{className:"px-5 md:px-10 py-8 flex flex-wrap gap-4 justify-between items-center text-[12px] mute",style:{background:"var(--ink)",color:"#888",borderTop:"1px solid #222"}},
+h("p",null,"© 2026 KHURSANBEKOV ASADBEK. "+s.rights),h("a",{href:"#top",className:"hover:text-white py-2"},"↑ "+s.top))}
+
+ReactDOM.createRoot(document.getElementById("root")).render(h(App));
+document.body.insertAdjacentHTML("beforeend",'<div id="cur" aria-hidden="true"></div><div id="veil" aria-hidden="true">KHURSANBEKOV ASADBEK</div>');
+</script>
+</body>
+</html>
